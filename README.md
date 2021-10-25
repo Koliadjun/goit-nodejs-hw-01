@@ -1,5 +1,7 @@
 # goit-nodejs-hw-01
 
+[node index.js --action="list"] (https://ibb.co/vv17Mkq)
+
 # Домашнє завдання 1
 
 ## Крок 1
