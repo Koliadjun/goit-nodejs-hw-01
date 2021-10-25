@@ -23,16 +23,16 @@ const normalizeId = (id) => {
         return parseInt(id)
     } else { return id }
 }
-// const contactsPath = path.join(__dirname, "..", "db", "contacts.json");
+const contactsPath = path.join(__dirname, "..", "db", "contacts.json");
 
-const listContacts = async (path) => {
-    const allContacts = await readFileToObg(path)
+const listContacts = async () => {
+    const allContacts = await readFileToObg(contactsPath)
     return allContacts;
 }
 
-const getContactById = async (path, contactId) => {
+const getContactById = async (contactId) => {
     const id = normalizeId(contactId)
-    const allContacts = await readFileToObg(path);
+    const allContacts = await readFileToObg(contactsPath);
     const contactToFind = allContacts.find(contact => contact.id === id);
     if (!contactToFind) {
         console.warn(chalk.red('No such contact to get!'));
@@ -41,9 +41,9 @@ const getContactById = async (path, contactId) => {
     return contactToFind;
 }
 
-const removeContact = async (path, contactId) => {
+const removeContact = async (contactId) => {
     const id = normalizeId(contactId);
-    const allContacts = await readFileToObg(path);
+    const allContacts = await readFileToObg(contactsPath);
     const indexToFind = allContacts.findIndex(contact => contact.id === id)
     if (indexToFind === -1) {
         console.warn(chalk.red('No such contact to remove!'));
@@ -55,8 +55,8 @@ const removeContact = async (path, contactId) => {
     return deletedContact;
 }
 
-const addContact = async (path, name, email, phone) => {
-    const contacts = await readFileToObg(path);
+const addContact = async (name, email, phone) => {
+    const contacts = await readFileToObg(contactsPath);
     const newContact = { id: uuidv4(), name, email, phone };
     contacts.push(newContact);
     await writeObgToFile(path, contacts);

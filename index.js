@@ -12,7 +12,6 @@ program
     .option('-p, --phone <type>', 'user phone');
 
 
-const contactsPath = path.join(__dirname, "db", "contacts.json");
 program.parse(process.argv);
 
 const argv = program.opts();
@@ -20,22 +19,22 @@ const argv = program.opts();
 async function invokeAction({ action, id, name, email, phone }) {
     switch (action) {
         case 'list':
-            const allData = await listContacts(contactsPath);
+            const allData = await listContacts();
             console.table(allData)
             return allData;
 
         case 'get':
-            const contact = await getContactById(contactsPath, id)
+            const contact = await getContactById(id)
             console.table(contact)
             return contact;
 
         case 'add':
-            const newContact = await addContact(contactsPath, name, email, phone);
+            const newContact = await addContact(name, email, phone);
             console.table(newContact)
             return newContact;
 
         case 'remove':
-            const removedContact = await removeContact(contactsPath, id)
+            const removedContact = await removeContact(id)
             console.table(removedContact)
             return removedContact;
 
