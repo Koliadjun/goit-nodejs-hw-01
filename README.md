@@ -1,6 +1,14 @@
 # goit-nodejs-hw-01
 
-[node index.js --action="list"](https://ibb.co/vv17Mkq)
+## Результат виконання комант
+
+[node index.js --action="list"](https://ibb.co/JcjhBRY)
+
+[node index.js --action="get" --id=5](https://ibb.co/80vJKG2)
+
+[node index.js --action="add" --name="Mango" --email="mango@gmail.com" --phone="322-22-22"](https://ibb.co/Cm3vNQT)
+
+[node index.js --action="remove" --id=3](https://ibb.co/F08SMFg)
 
 # Домашнє завдання 1
 
@@ -139,8 +147,6 @@ invokeAction(argv);
 ```shell
 # Отримуємо і виводимо весь список контактів у вигляді таблиці (console.table)
 node index.js --action="list"
-
-https://ibb.co/vv17Mkq
 
 # Отримуємо контакт по id
 node index.js --action="get" --id=5
