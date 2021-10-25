@@ -1,6 +1,5 @@
 # goit-nodejs-hw-01
 
-
 # Домашнє завдання 1
 
 ## Крок 1
@@ -138,6 +137,8 @@ invokeAction(argv);
 ```shell
 # Отримуємо і виводимо весь список контактів у вигляді таблиці (console.table)
 node index.js --action="list"
+
+https://ibb.co/vv17Mkq
 
 # Отримуємо контакт по id
 node index.js --action="get" --id=5
