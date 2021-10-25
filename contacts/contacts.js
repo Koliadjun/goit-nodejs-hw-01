@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const chalk = require('chalk');
+const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
 const readFileToObg = async (path) => {
