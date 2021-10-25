@@ -56,7 +56,7 @@ const removeContact = async (contactId) => {
     return deletedContact;
 }
 
-const addContact = async (name, email, phone) => {
+const addContact = async (name = '', email = '', phone = '') => {
     const contacts = await readFileToObg(contactsPath);
     const newContact = { id: uuidv4(), name, email, phone };
     contacts.push(newContact);
