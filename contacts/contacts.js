@@ -52,7 +52,7 @@ const removeContact = async (contactId) => {
     }
     const deletedContact = allContacts.splice(indexToFind, 1)
     const contactsAfterDelete = allContacts;
-    await writeObgToFile(path, contactsAfterDelete)
+    await writeObgToFile(contactsPath, contactsAfterDelete)
     return deletedContact;
 }
 
@@ -60,7 +60,7 @@ const addContact = async (name = '', email = '', phone = '') => {
     const contacts = await readFileToObg(contactsPath);
     const newContact = { id: uuidv4(), name, email, phone };
     contacts.push(newContact);
-    await writeObgToFile(path, contacts);
+    await writeObgToFile(contactsPath, contacts);
     return newContact;
 }
 module.exports = { listContacts, getContactById, removeContact, addContact }
